@@ -1,6 +1,5 @@
-// TODO: maybe populate ('questions')
-
 const quizzesModel = require('../models/quizzes/quizzes.models.server')
-const findAllQuizzes = () => quizzesModel.find()
-const findQuizById = (qid) => quizzesModel.find({"quizId": qid})
+// populate the questions field 
+const findAllQuizzes = () => quizzesModel.find().populate('questions')
+const findQuizById = (quizId) => quizzesModel.findById(quizId).populate('questions')
 module.exports = { findAllQuizzes, findQuizById }

@@ -5,5 +5,5 @@ module.exports = function (app) {
            .then(allQuizzes => res.send(allQuizzes)))
    app.get('/api/quizzes/:quizId', (req, res) =>
        quizzesService.findQuizById(req.params['quizId'])
-           .then(quiz => res.send(quiz)))
+           .then(quiz => res.json(quiz)))
 }

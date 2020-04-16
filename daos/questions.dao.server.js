@@ -1,18 +1,11 @@
 const questionsModel = require('../models/questions/questions.models.server')
 const quizzesModel = require('../models/quizzes/quizzes.models.server')
 
+var ObjectId = require('mongodb').ObjectID
+
 const findAllQuestions = () => questionsModel.find()
-const findQuestionById = (qid) => questionsModel.find(qid)
-
-// const findQuestionsForQuiz = (qzid) => questionsModel.find({"quizId": qzid})
-       // .populate(quizzesModel.find({"quizId": qzid})['questions']).then(quiz => quiz.questions)
-
-// const findQuestionsForQuiz = (qzid) => quizzesModel.find({"quizId": qzid})
-       // .populate('questions').then(quiz => quiz.questions)
-
-const findQuestionsForQuiz = (qzid) => questionsModel.find({"quizId": qzid})
-       .populate('questions').then(quiz => quiz)
-
-
+const findQuestionById = (qid) => questionsModel.findById(new ObjectId(qid))
+const findQuestionsForQuiz = (qzid) => quizzesModel.findById(new ObjectId(qzid))
+       .populate('questions').then(quiz => quiz.questions)
 
 module.exports = { findAllQuestions, findQuestionById, findQuestionsForQuiz }
