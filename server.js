@@ -3,7 +3,17 @@ var express = require('express')
 var app = express()
 var bodyParser = require('body-parser')
 
+
 const mongoose = require('mongoose')
+
+var connectionString = 'mongodb://127.0.0.1:27017/test';
+if(process.env.MLAB_USERNAME_WEBDEV) {
+   var username = process.env.MLAB_USERNAME_WEBDEV;
+   var password = process.env.MLAB_PASSWORD_WEBDEV;
+   connectionString = 'mongodb://' + username + ':' + password;
+   connectionString += '@ds115752.mlab.com:15752/heroku_qkxpm811';
+}
+
 mongoose.connect('mongodb://localhost:27017/whiteboard',
 { useNewUrlParser: true, useUnifiedTopology: true })
 
