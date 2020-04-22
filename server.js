@@ -14,7 +14,7 @@ if(process.env.MLAB_USERNAME_WEBDEV) {
    connectionString += '@ds115752.mlab.com:15752/heroku_qkxpm811';
 }
 
-mongoose.connect('mongodb://localhost:27017/whiteboard',
+mongoose.connect(connectionString,
 { useNewUrlParser: true, useUnifiedTopology: true })
 
 // enable CORS
