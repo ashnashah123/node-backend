@@ -9,7 +9,7 @@
   "dependencies": {
     "bootstrap": "^4.4.1",
     "crypto-js": "^3.1.9-1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "leaflet-webgl-heatmap": "^0.2.7",
     "mongoose": "^5.9.9",
     "npm": "^6.13.7",
